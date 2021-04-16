@@ -69,8 +69,6 @@ def mandar_correo(texto):
 
 # Ejecución principal
 def main():
-    # Flags para evitar repetición de correos
-    flag_ejemplo = True
 
     # Bucle para refrescar
     while True:
@@ -82,9 +80,8 @@ def main():
         link_ejemplo = 'https://www.mediamarkt.es/es/product/_consola-sony-ps5-825-gb-4k-hdr-blanco-1487016.html'
         xpath_ejemplo = '//*[@id="root"]/div[2]/div[3]/div[1]/div/div[4]/div/div/div[3]/div/span'
 
-        if ( S.texto_xpath(link_ejemplo, xpath_ejemplo) != 'Este artículo no está disponible actualmente.' and flag_ejemplo ):
+        if ( S.texto_xpath(link_ejemplo, xpath_ejemplo) != 'Este artículo no está disponible actualmente.' ):
             mandar_correo('Disponible en: ' + link_ejemplo)
-            flag_ejemplo = False
         # FIN EJEMPLO =================================================================================
         
         S.cerrar() # cierra chrome
