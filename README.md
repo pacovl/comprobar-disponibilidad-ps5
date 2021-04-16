@@ -25,14 +25,14 @@ Al inpeccionar ese elemento se nos resaltará una parte del código de la págin
 
 Si observas la última parte del código verás estas líneas, que son las más importantes y las únicas que debes entender para poner incluir más enlaces en los que buscar el producto.
 ```
-        # EJEMPLO =================================================================================
-        print('vvvvvvvvvv EJEMPLO vvvvvvvvvv')
-        link_ejemplo = 'https://www.mediamarkt.es/es/product/_consola-sony-ps5-825-gb-4k-hdr-blanco-1487016.html'
-        xpath_ejemplo = '//*[@id="root"]/div[2]/div[3]/div[1]/div/div[4]/div/div/div[3]/div/span'
+  # EJEMPLO =================================================================================
+  print('vvvvvvvvvv EJEMPLO vvvvvvvvvv')
+  link_ejemplo = 'https://www.mediamarkt.es/es/product/_consola-sony-ps5-825-gb-4k-hdr-blanco-1487016.html'
+  xpath_ejemplo = '//*[@id="root"]/div[2]/div[3]/div[1]/div/div[4]/div/div/div[3]/div/span'
 
-        if ( S.texto_xpath(link_ejemplo, xpath_ejemplo) != 'Este artículo no está disponible actualmente.' ):
-            mandar_correo('Disponible en: ' + link_ejemplo)
-        # FIN EJEMPLO =================================================================================
+  if ( S.texto_xpath(link_ejemplo, xpath_ejemplo) != 'Este artículo no está disponible actualmente.' ):
+      mandar_correo('Disponible en: ' + link_ejemplo)
+  # FIN EJEMPLO =================================================================================
 ```
 Para añadir otra página para comprobar la disponibilidad tendrías que ir sustituyendo el enlace, el xpath y el texto del elemento. Para comprobar enlaces adicionales simplemente copia este bloque de código a continuación, respentando la misma tabulación. Al ejecutar el programa, cada cierto tiempo se abrirá chrome e irá abriendo los enlaces introducidos para comprobar si en el elemento indicado sigue teniendo el mismo mensaje de 'producto agotado' o el que sea. En caso de que no coincida te mandará un correo electrónico con el enlace en cuestión. Puedes ajustar el tiempo que pasa entre cada comprobación modificando el siguiente número, que por defecto está a una hora:
 ```
